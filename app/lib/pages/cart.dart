@@ -2,6 +2,13 @@ import 'package:coffee_shop/main.dart';
 
 import 'package:flutter/material.dart';
 
+/// Displays the products currently in the shopping cart together with the
+/// running total. Provides **PAY** and **REMOVE ORDERS** actions.
+///
+/// - **PAY** calls [CoffeeManager.makeOrder], which converts the cart into a
+///   completed [Order] and clears it.
+/// - **REMOVE ORDERS** calls [CoffeeManager.clearCart], discarding all items
+///   without creating an order.
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
 

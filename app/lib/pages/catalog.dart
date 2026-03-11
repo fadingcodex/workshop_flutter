@@ -3,6 +3,8 @@ import 'package:coffee_shop/models/product.dart';
 
 import 'package:flutter/material.dart';
 
+/// Displays the list of available coffee products and allows the user to add
+/// items to the cart by tapping them.
 class CatalogPage extends StatefulWidget {
   const CatalogPage({super.key});
 
@@ -43,6 +45,10 @@ class _CatalogPageState extends State<CatalogPage> {
     );
   }
 
+  /// Builds a single [ListTile] for [p].
+  ///
+  /// Tapping the tile calls [CoffeeManager.addToCart] and triggers a
+  /// `setState` so that any UI depending on the cart is rebuilt.
   ListTile buildCatalogItem(Product p) {
     String price = p.price.toString();
 
@@ -56,6 +62,7 @@ class _CatalogPageState extends State<CatalogPage> {
     );
   }
 
+  /// Shows a [SnackBar] confirming that a product was added to the cart.
   void showToast(BuildContext context) {
     final scaffold = ScaffoldMessenger.of(context);
     scaffold.showSnackBar(

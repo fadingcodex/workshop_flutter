@@ -3,6 +3,11 @@ import 'package:coffee_shop/main.dart';
 
 import 'package:flutter/material.dart';
 
+/// Displays the current user's profile information.
+///
+/// Shows a placeholder avatar, the user's name, email address, and phone
+/// number read from [CoffeeManager.user]. When at least one order has been
+/// placed, an **All orders** button appears that navigates to [OrdersPage].
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
