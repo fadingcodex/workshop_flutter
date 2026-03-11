@@ -1,0 +1,23 @@
+name: Documentation Agent
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+      - 'docs/**'
+      - 'src/**'
+  pull_request:
+    types: [opened, synchronize]
+  issues:
+    types: [opened, edited]
+
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Documentation Agent
+        uses: github/agent-action@v1
+        with:
+          agent: documentation-agent
