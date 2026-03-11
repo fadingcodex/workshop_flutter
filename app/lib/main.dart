@@ -9,9 +9,15 @@ void main() {
   runApp(const CoffeeShopApp());
 }
 
+/// Root widget of the CoffeeShop application.
+///
+/// Configures [MaterialApp] with the app theme and sets [HomePage] as the
+/// initial route. A single shared [CoffeeManager] instance is stored here and
+/// accessed by child widgets via `CoffeeShopApp.manager`.
 class CoffeeShopApp extends StatelessWidget {
   const CoffeeShopApp({super.key});
 
+  /// Shared state manager accessible from any widget in the tree.
   static final manager = CoffeeManager();
 
   @override
@@ -28,9 +34,12 @@ class CoffeeShopApp extends StatelessWidget {
   }
 }
 
+/// The main scaffold of the app, hosting the [BottomNavigationBar] and
+/// switching between the three top-level pages.
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
 
+  /// Title displayed in the [AppBar].
   final String title;
 
   @override
@@ -38,8 +47,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  /// Index of the currently selected bottom-navigation tab.
   int index = 0;
 
+  /// Returns the page widget that corresponds to the selected [index].
+  ///
+  /// - 0 → [CatalogPage]
+  /// - 1 → [CartPage]
+  /// - 2 → [ProfilePage]
   Widget navigateToPage() {
     switch (index) {
       case 1:
